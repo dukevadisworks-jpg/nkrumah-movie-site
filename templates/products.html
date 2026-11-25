@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Souvenirs{% endblock %}
+{% block content %}
+<main>
+    <h2>Souvenirs</h2>
+    <p>Every purchase helps amputees and the sick around the world.</p>
+    <div class="grid">
+        {% for p in products %}
+        <div class="card">
+            {% if p.photo %}<img src="{{ p.photo.url }}" alt="{{ p.name }}">{% endif %}
+            <h3>{{ p.name }}</h3>
+            <p>{{ p.description }}</p>
+            <p class="price">{{ p.price }}</p>
+            {% if not p.in_stock %}<p><em>Out of stock</em></p>{% endif %}
+        </div>
+        {% empty %}<p>Souvenirs coming soon.</p>
+        {% endfor %}
+    </div>
+    <p>To order, <a href="{% url 'contact' %}">contact us</a> or call 07474 118 747.</p>
+</main>
+{% endblock %}

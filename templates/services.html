@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Services{% endblock %}
+{% block content %}
+<main>
+    <h2>Our Services</h2>
+    <div class="grid">
+        {% for s in services %}
+        <div class="card"><h3>{{ s.name }}</h3><p>{{ s.description }}</p></div>
+        {% empty %}<p>Services coming soon.</p>
+        {% endfor %}
+    </div>
+    <p><a class="btn" href="{% url 'booking' %}">Make a Booking</a></p>
+</main>
+{% endblock %}

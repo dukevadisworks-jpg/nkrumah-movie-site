@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+<main>
+    <h2>About Us</h2>
+    {% if movie.poster %}<img class="statue" src="{{ movie.poster.url }}" alt="Movie poster">{% endif %}
+    <p>Kwame Nkrumah Is Back brings the spirit of Ghana's first president to a new generation. Our work blends film, culture and giving back.</p>
+    {% if movie %}<p>{{ movie.synopsis|linebreaks }}</p>{% endif %}
+</main>
+{% endblock %}

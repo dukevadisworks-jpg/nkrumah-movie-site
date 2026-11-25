@@ -1,0 +1,14 @@
+<div class="logo">
+{% if site_settings and site_settings.logo %}
+    <img src="{{ site_settings.logo.url }}" alt="Logo" height="70">
+{% else %}
+    <svg viewBox="0 0 200 120" width="130" height="78" role="img" aria-label="Golden eagle">
+        <g fill="#FCD116" stroke="#8a6d00" stroke-width="2" stroke-linejoin="round">
+            <path d="M100 18 L112 34 L108 50 L100 46 L92 50 L88 34 Z"/>
+            <path d="M92 50 L60 36 L18 40 L44 56 L10 70 L52 72 L34 90 L74 80 L88 100 L100 112 L112 100 L126 80 L166 90 L148 72 L190 70 L156 56 L182 40 L140 36 L108 50 L100 46 Z"/>
+            <path d="M104 26 L122 30 L108 36 Z"/>
+        </g>
+        <circle cx="97" cy="31" r="2.5" fill="#111"/>
+    </svg>
+{% endif %}
+</div>

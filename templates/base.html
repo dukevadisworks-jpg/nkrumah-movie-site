@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Kwame Nkrumah Is Back{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="flag-bar"></div>
+<header class="site-header">
+   {% include 'logo.html' %}
+    <p class="motto">&#9733; Forward Ever, Backward Never &#9733;</p>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About Us</a>
+        <a href="{% url 'services' %}">Services</a>
+        <a href="{% url 'products' %}">Souvenirs</a>
+        <a href="{% url 'booking' %}">Booking</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+</header>
+<div class="kente-strip"></div>
+
+{% if messages %}
+<main style="padding-bottom:0">
+    {% for m in messages %}<div class="msg">{{ m }}</div>{% endfor %}
+</main>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<div class="kente-strip"></div>
+<footer>
+    <p><strong>&#9733; Forward Ever, Backward Never &#9733;</strong></p>
+    <p>Phone: 07474 118 747 &middot;
+       Email: <a href="mailto:kwamenkrumahisbackagain@gmail.com">kwamenkrumahisbackagain@gmail.com</a></p>
+    <p>Proceeds from souvenirs help amputees and the sick around the world.</p>
+</footer>
+<div class="flag-bar"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+    <div class="black-star">&#9733;</div>
+    <h1>{% if movie %}{{ movie.title }}{% else %}Kwame Nkrumah Is Back{% endif %}</h1>
+    <p>{% if movie %}{{ movie.tagline }}{% else %}Gen Z flows with Kwame Nkrumah{% endif %}</p>
+    {% if movie and movie.hero_image %}
+        <img class="statue" src="{{ movie.hero_image.url }}" alt="Golden statue of Kwame Nkrumah">
+    {% else %}
+        <div class="statue-placeholder">
+            <span class="gold-star">&#9733;</span>
+            Golden Nkrumah statue goes here.<br>Upload it as the hero image in the admin page.
+        </div>
+    {% endif %}
+    <p><a class="btn" href="{% url 'booking' %}">Book Now</a>
+       <a class="btn" href="{% url 'products' %}">Shop Souvenirs</a></p>
+</section>
+<main>
+    {% if movie %}
+    <h2>The Film</h2>
+    <p>{{ movie.synopsis|linebreaks }}</p>
+    {% if movie.trailer_url %}<p><a class="btn" href="{{ movie.trailer_url }}" target="_blank">Watch the Trailer</a></p>{% endif %}
+    {% endif %}
+    <h2>Gallery</h2>
+    <div class="grid">
+        {% for g in gallery %}
+        <div class="card"><img src="{{ g.image.url }}" alt="{{ g.caption }}"><p>{{ g.caption }}</p></div>
+        {% empty %}<p>Photos coming soon.</p>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
