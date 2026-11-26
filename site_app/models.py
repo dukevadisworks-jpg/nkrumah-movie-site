@@ -1,5 +1,5 @@
-from django.db import models
 from cloudinary.models import CloudinaryField
+from django.db import models
 
 
 class Movie(models.Model):
@@ -70,10 +70,10 @@ class ContactMessage(models.Model):
 
 
 class SiteSettings(models.Model):
-        logo = CloudinaryField('logo', blank=True, null=True)
+    logo = CloudinaryField('logo', blank=True, null=True)
 
-        class Meta:
-                verbose_name_plural = 'Site settings'
+    class Meta:
+        verbose_name_plural = 'Site settings'
 
-        def __str__(self):
-                return 'Site settings'
+    def __str__(self):
+        return 'Site settings'
