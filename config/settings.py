@@ -116,3 +116,6 @@ if not DEBUG:
     SECURE_HSTS_PRELOAD = os.environ.get('SECURE_HSTS_PRELOAD', 'False').lower() in {'1', 'true', 'yes'}
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+WHITENOISE_MAX_AGE = 60 * 60
+WHITENOISE_MANIFEST_STRICT = False
