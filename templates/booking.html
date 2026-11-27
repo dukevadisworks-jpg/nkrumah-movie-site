@@ -1,13 +1,17 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block title %}Booking{% endblock %}
+
 {% block content %}
-<main>
+<section class="booking-section">
+  <div class="form-box">
     <h2>Booking Form</h2>
-    <p>Request a screening, talk or appearance.</p>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn" type="submit">Send Booking Request</button>
+    <p class="form-intro">Book a screening, a talk or an appearance. Forward ever, backward never.</p>
+    <form method="post" class="glass-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn" type="submit">Send Booking Request</button>
     </form>
-</main>
+  </div>
+</section>
 {% endblock %}
