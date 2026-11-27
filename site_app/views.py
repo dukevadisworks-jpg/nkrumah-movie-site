@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from .forms import BookingForm, ContactForm
 from .models import Movie, GalleryImage, Service, Product
 
@@ -39,3 +40,7 @@ def booking(request):
         messages.success(request, 'Your booking request has been received. We will be in touch.')
         return redirect('booking')
     return render(request, 'booking.html', {'form': form})
+
+
+def health(request):
+    return JsonResponse({'status': 'ok'})
